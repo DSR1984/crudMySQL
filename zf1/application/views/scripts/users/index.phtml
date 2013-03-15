@@ -1,0 +1,38 @@
+<?php
+$this->title = "Usuarios";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'users',
+'action'=>'add'));?>">Add</a></p>
+<table>
+<tr>
+<th>Nombre</th>
+<th>E-mail</th>
+<th>Contrase&ntilde;a</th>
+<th>Direcci&oacute;n</th>
+<th>Descripci&oacute;n</th>
+<th>Sexo</th>
+<th>Ciudad</th>
+<th>Foto</th>
+<th>Mascotas</th>
+</tr>
+<?php foreach($this->users as $users) : ?>
+<tr>
+<td><?php echo $this->escape($users->name);?></td>
+<td><?php echo $this->escape($users->email);?></td>
+<td><?php echo $this->escape($users->password);?></td>
+<td><?php echo $this->escape($users->address);?></td>
+<td><?php echo $this->escape($users->description);?></td>
+<td><?php echo $this->escape($users->gender_idgender);?></td>
+<td><?php echo $this->escape($users->city_idcity);?></td>
+<td><?php echo $this->escape($users->photo);?></td>
+<td><?php echo $this->escape($users->pets);?></td>
+<td>
+<a href="<?php echo $this->url(array('controller'=>'users',
+'action'=>'edit', 'id'=>$users->id_user));?>">Edit</a>
+<a href="<?php echo $this->url(array('controller'=>'users',
+'action'=>'delete', 'id'=>$users->id_user));?>">Delete</a>
+</td>
+</tr>
+<?php endforeach; ?>
+</table>
